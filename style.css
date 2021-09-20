@@ -1,0 +1,172 @@
+* {
+  font-size: 16px;
+  font-family: Roboto;
+}
+
+.container {
+  max-width: 1140px !important;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  width: 85px;
+  height: 85px;
+}
+
+.header_logo {
+  width: fit-content;
+}
+
+.menu {
+  display: inline-block;
+  height: fit-content;
+  margin-right: 10px;
+  margin: auto;
+}
+
+.header_nav {
+  text-decoration: none !important;
+  margin-left: 40px;
+  background-color: #fff;
+  color: black !important;
+  text-transform: uppercase;
+  font-weight: 400;
+  border: none;
+}
+
+.main_block {
+  height: 1162px;
+  margin-top: 10px;
+  background: url(/icon/7.jpg) center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+}
+
+.main_text {
+  max-width: 600px;
+  margin-top: 500px;
+  color: white;
+  font-size: 55px;
+}
+
+.main_subtext {
+  color: white;
+  margin-top: 290px;
+  max-width: 415px;
+  width: fit-content;
+  font-weight: 400;
+  line-height: 1.2;
+  font-size: 32px;
+}
+
+.carousel_block {
+  margin: 50px auto;
+  width: 450px;
+}
+
+.carousel-item img {
+  height: 600px;
+}
+
+.main_CONTACTS {
+  margin: 50px auto 0px;
+  padding: 0px;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.CONTACTS {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+
+.addresses {
+  text-align: center;
+  font-weight: 400;
+  font-size: 1.1rem;
+  max-width: 230px;
+  line-height: 1.2;
+}
+
+.tel {
+  text-align: center;
+  font-weight: 400;
+  font-size: 1.1rem;
+  max-width: 230px;
+  line-height: 1.2;
+  margin-left: 75px;
+}
+
+.number {
+  text-align: center;
+  font-weight: 400;
+  font-size: 1.1rem;
+  max-width: 230px;
+  line-height: 1.2;
+}
+
+.divider {
+  margin-top: 30px;
+  background-color: black;
+  height: 2px;
+}
+
+.Pomoc {
+  font-weight: 400;
+  font-size: 3rem;
+  line-height: 1.1;
+  margin-top: 25px;
+}
+
+.pomoc_info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 60px;
+}
+
+.pomoc_info_1 {
+  height: 150px;
+  text-align: left;
+  font-weight: 400;
+  font-size: 1.1rem;
+}
+
+.pomoc_info_2 {
+  height: 150px;
+  text-align: left;
+  font-weight: 400;
+  font-size: 1.1rem;
+  margin-left: 150px;
+}
+
+.pomoc_info_3 {
+  height: 150px;
+  text-align: left;
+  font-weight: 400;
+  font-size: 1.1rem;
+}
+
+.main_footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  margin-top: 80px;
+  color: white;
+  background-color: #333333;
+  height: 61px;
+}
+
+#footer_company {
+  color: #478ac9 !important;
+  padding: 0 !important;
+}
