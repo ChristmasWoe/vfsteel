@@ -28,3 +28,8 @@ document
   );
 
 //Scroll to License
+document
+  .querySelector("#scroll_to_license")
+  .addEventListener("click", () =>
+    document.querySelector(".pomoc_block").scrollIntoView()
+  );
