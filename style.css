@@ -207,10 +207,13 @@ a {
   font-weight: 700;
   text-decoration: none;
   border-radius: 20px;
-  transition: 0.2s;
-  margin-left: auto;
+  margin-left: auto;  
   margin-right: auto;
   margin-top: 30px;
+  background-color: #C0C0C0;
+  border: black;
+  text-transform: uppercase;
+  transition: all 0.2s linear;
   /* margin: 30px 0px -5px 0px; */
 }
 
