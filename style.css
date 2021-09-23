@@ -225,3 +225,14 @@ a {
 #collapseExample{
   margin-top: 16px;
 }
+
+.main_footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  margin-top: 80px;
+  color: white;
+  background-color: #333333;
+  height: 61px;
+}
