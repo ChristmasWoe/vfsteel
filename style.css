@@ -4,14 +4,13 @@ html::-webkit-scrollbar {
 
 /* Hide scrollbar for IE, Edge and Firefox */
 html {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
-
 body {
-display: flex;
-flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 * {
@@ -19,7 +18,7 @@ flex-direction: column;
   font-family: Roboto;
 }
 
-.info_block{
+.info_block {
   display: flex;
   flex-direction: column;
 }
@@ -60,7 +59,6 @@ flex-direction: column;
 }
 a {
   text-decoration: none !important;
-  padding-left: 40px;
   color: black !important;
   text-transform: uppercase;
   font-weight: 400;
@@ -69,7 +67,8 @@ a {
 .main_block {
   height: 1162px;
   margin-top: 10px;
-  background: url("https://firebasestorage.googleapis.com/v0/b/vfsteel-ada5d.appspot.com/o/service%2Fmainpage.jpg?alt=media&token=54c08dc0-0bb2-4b77-aa88-185f24cbc869") center;
+  background: url("https://firebasestorage.googleapis.com/v0/b/vfsteel-ada5d.appspot.com/o/service%2Fmainpage.jpg?alt=media&token=54c08dc0-0bb2-4b77-aa88-185f24cbc869")
+    center;
   background-size: cover;
   background-repeat: no-repeat;
   display: flex;
@@ -203,15 +202,15 @@ a {
   margin-right: auto;
 }
 
-.btn.btn-primary{
+.btn.btn-primary {
   font-weight: 700;
   text-decoration: none;
   border-radius: 20px;
-  margin-left: auto;  
+  margin-left: auto;
   margin-bottom: 10px;
   margin-right: auto;
   margin-top: 30px;
-  background-color: #C0C0C0;
+  background-color: #c0c0c0;
   border: black;
   text-transform: uppercase;
   transition: all 0.2s linear;
@@ -224,9 +223,9 @@ a {
 
 .card_card-body_1 {
   text-align: start;
-} 
+}
 
-#collapseExample{
+#collapseExample {
   margin-top: 16px;
 }
 
@@ -241,38 +240,38 @@ a {
   height: 61px;
 }
 
-
-
-.photo_row{
+.photo_row {
   display: flex;
   justify-content: space-evenly;
   margin-bottom: 20px;
   flex-direction: row;
 }
 
-.photo_row > div{
+.photo_row > div {
   width: 360px;
   height: 480px;
-  border: 1px solid blue;
+  border: 0.5rem solid rgb(54, 54, 54);
+  border-radius: 5px;
   box-sizing: content-box;
 }
 
 .photo_row > div > div {
   background-position: center !important;
-    background-repeat: no-repeat !important;
-    background-color: black !important;
+  background-repeat: no-repeat !important;
+  background-color: black !important;
   width: 360px;
   height: 480px;
   text-align: center;
 }
 
-.carousel-control-next, .carousel-control-prev{
-  width: 5% !important;
+.carousel-control-next,
+.carousel-control-prev {
+  width: 3% !important;
   min-width: 24px !important;
   background-color: black !important;
 }
 
-.carousel-inner{
+.carousel-inner {
   padding-right: 40px !important;
-    padding-left: 40px !important;
+  padding-left: 40px !important;
 }
