@@ -20,7 +20,7 @@ document
     document.querySelector(".info_block").scrollIntoView()
   );
 
-//Scrolling to Pomoc Block
+// Scrolling to Pomoc Block
 document
   .querySelector("#scroll_to_pomoc")
   .addEventListener("click", () =>
