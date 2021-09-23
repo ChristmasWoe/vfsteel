@@ -42,7 +42,9 @@
               ÚVODNÍ STRÁNKA
             </button>
             <button class="header_nav" id="scroll_to_carousel">
-              Naše práce
+              <a href="#carouselExampleIndicators">
+                Naše práce
+              </a>
             </button>
             <button class="header_nav" id="scroll_to_info">KONTAKTY</button>
             <button class="header_nav" id="scroll_to_license">GDPR</button>
@@ -114,7 +116,32 @@
     </section> -->
     <!-- INFO -->
     <section class="info_block">
-    <section></section>
+    <section>
+      <h3 class="main_CONTACTS">
+        Naše práce
+      </h3>
+      <div class="photos_block">
+        <div class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+          </ol>
+          <div id="photos-slider" class="carousel-inner">
+    
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <!-- <span class="sr-only"> &lt; </span> -->
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <!-- <span class="sr-only">&gt;</span> -->
+          </a>
+        </div>
+      </div>
+
+    </section>
     <!-- FOOTER -->
     <section>
       <h3 class="main_CONTACTS">KONTAKTY</h3>
@@ -294,6 +321,46 @@
             // return []
         });
       }
+
+      function controls(){
+        let slider = document.getElementById("photos-slider");
+        let prevCtrl = document.querySelector('[data-slide="prev"]');
+        let nextCtrl = document.querySelector('[data-slide="next"]');
+        let slides = slider.children;
+        let arr = Array.prototype.slice.call(slides)
+        console.log("children",arr);
+        nextCtrl.addEventListener("click",function(e){
+          let currentIndex;
+          for(let i = 0; i < arr.length;i++){
+            if(arr[i].classList.contains("active")){
+              currentIndex = i;
+              arr[i].setAttribute("class","carousel-item")
+              if(currentIndex+1==arr.length){
+                arr[0].setAttribute("class","carousel-item active")
+              }else{
+                arr[i+1].setAttribute("class","carousel-item active")
+              }
+              break
+            }
+          }
+        })
+        prevCtrl.addEventListener("click",function(e){
+          let currentIndex;
+          for(let i =0; i < arr.length;i++){
+            if(arr[i].classList.contains("active")){
+              currentIndex = i;
+              arr[i].setAttribute("class","carousel-item")
+              if(currentIndex==0){
+                arr[arr.length-1].setAttribute("class","carousel-item active")
+              }else{
+                arr[i-1].setAttribute("class","carousel-item active")
+              }
+              break
+            }
+          }
+        })
+      }
+
       async function getLinks(paths){
         let links = []
         for(let i=0;i<paths.length;i++){
@@ -302,9 +369,67 @@
         }
         console.log(links)
         window.imgs = links
+        let avW = window.innerWidth;
+        let card_width = 360;
+        let gap = 20;
+        let pad_width = 60; 
+        let cards_per_line;
+        switch(true){
+          case (avW-2*pad_width < card_width):
+            cards_per_line = 1;
+            break;
+          case (avW-2*pad_width < 2*card_width):
+            cards_per_line = 1;
+            break;
+          case (avW-2*pad_width < 3*card_width):
+            cards_per_line = 2;
+            break;
+          case (avW-2*pad_width < 4*card_width):
+            cards_per_line = 3;
+            break;
+          default:
+            cards_per_line = 4;
+            break;
+        }
+        let cards_per_slide = cards_per_line * 3;
+        let slides_amount = Math.ceil(links.length / cards_per_slide);
+        let slider = document.getElementById("photos-slider");
+        for(let i = 0; i < slides_amount; i++) {
+          let slide = document.createElement("div")
+          if(i==0){
+            slide.setAttribute("class","carousel-item active");
+          }else{
+            slide.setAttribute("class","carousel-item");
+          }
+
+          for(let cr=0;cr < 3;cr++){
+            let row = document.createElement("div")
+            row.setAttribute("class","photo_row")
+            slide.appendChild(row);
+            for(let currentCardIndex = 0;currentCardIndex<cards_per_line;currentCardIndex++){
+              let card = document.createElement("div");
+              let cardImg = document.createElement("div");
+              if(i*3*cards_per_line+cr*cards_per_line+currentCardIndex>=links.length){
+                slider.appendChild(slide);
+                controls()
+                return;
+              }
+              cardImg.style.background = `url(${links[i*3*cards_per_line+cr*cards_per_line+currentCardIndex]})`
+              // cardImg.setAttribute("background-url",);
+             
+              card.appendChild(cardImg);
+              row.appendChild(card);
+              let natHeight = cardImg.naturalHeight;
+            }
+          }
+          slider.appendChild(slide);
+        }
+        controls()
         // return links
       }
       listFunction()
+
+
       // console.log(paths)
       // let links = await getLinks(paths)
       // console.log(links)

@@ -185,7 +185,7 @@ a {
   align-items: center;
   justify-content: center;
   flex-wrap: nowrap;
-  margin-top: 80px;
+  /* margin-top: 80px; */
   color: white;
   background-color: #333333;
   height: 61px;
@@ -208,6 +208,7 @@ a {
   text-decoration: none;
   border-radius: 20px;
   margin-left: auto;  
+  margin-bottom: 10px;
   margin-right: auto;
   margin-top: 30px;
   background-color: #C0C0C0;
@@ -234,8 +235,44 @@ a {
   align-items: center;
   justify-content: center;
   flex-wrap: nowrap;
-  margin-top: 80px;
+  /* margin-top: 80px; */
   color: white;
   background-color: #333333;
   height: 61px;
+}
+
+
+
+.photo_row{
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 20px;
+  flex-direction: row;
+}
+
+.photo_row > div{
+  width: 360px;
+  height: 480px;
+  border: 1px solid blue;
+  box-sizing: content-box;
+}
+
+.photo_row > div > div {
+  background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-color: black !important;
+  width: 360px;
+  height: 480px;
+  text-align: center;
+}
+
+.carousel-control-next, .carousel-control-prev{
+  width: 5% !important;
+  min-width: 24px !important;
+  background-color: black !important;
+}
+
+.carousel-inner{
+  padding-right: 40px !important;
+    padding-left: 40px !important;
 }
