@@ -17,7 +17,7 @@ document
 document
   .querySelector("#scroll_to_info")
   .addEventListener("click", () =>
-    document.querySelector(".info_block").scrollIntoView()
+    document.querySelector(".contacts_block").scrollIntoView()
   );
 
 // Scrolling to Pomoc Block
@@ -28,3 +28,8 @@ document
   );
 
 //Scroll to License
+document
+  .querySelector("#scroll_to_license")
+  .addEventListener("click", () =>
+    document.querySelector(".pomoc_block").scrollIntoView()
+  );

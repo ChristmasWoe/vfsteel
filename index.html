@@ -25,12 +25,11 @@
     />
   </head>
  
- 
   <body>
     <script src="./script-imgs.js"></script>
 
     <!-- HEADER -->
-    <section>
+    <section class='header_block'>
       <div class="container">
         <div class="header">
           <div class="header_logo">
@@ -41,9 +40,9 @@
               ÚVODNÍ STRÁNKA
             </button>
             <button class="header_nav" id="scroll_to_carousel">
-              <a href="#carouselExampleIndicators">
+              <!-- <a href="#carouselExampleIndicators"> -->
                 Naše práce
-              </a>
+              <!-- </a> -->
             </button>
             <button class="header_nav" id="scroll_to_info">KONTAKTY</button>
             <button class="header_nav" id="scroll_to_license">GDPR</button>
@@ -72,7 +71,7 @@
     <section id="prace" class='carousel_block'>
       <h3 class="main_CONTACTS">
         Naše práce
-      </h3>
+      </h2>
       <div class="photos_block">
         <div class="carousel slide" data-ride="carousel">
           <ol class="carousel-indicators">
@@ -96,7 +95,7 @@
 
     </section>
     <!-- FOOTER -->
-    <section>
+    <section class='contacts_block'>
       <h3 class="main_CONTACTS">KONTAKTY</h3>
       <div class="container">
         <div class="CONTACTS">
@@ -317,7 +316,7 @@
         let nextCtrl = document.querySelector('[data-slide="next"]');
         let slides = slider.children;
         let arr = Array.prototype.slice.call(slides)
-        console.log("children",arr);
+        
         nextCtrl.addEventListener("click",function(e){
           let currentIndex;
           for(let i = 0; i < arr.length;i++){
@@ -378,6 +377,9 @@
         let cards_per_slide = cards_per_line * 3;
         let slides_amount = Math.ceil(links.length / cards_per_slide);
         let slider = document.getElementById("photos-slider");
+
+        
+
         for(let i = 0; i < slides_amount; i++) {
           let slide = document.createElement("div")
           if(i==0){
@@ -409,6 +411,7 @@
               let preview = document.createElement("a");
               preview.innerHTML = "Узнать больше";
               preview.setAttribute("class","info");
+              preview.setAttribute('id', `smth`)
               cardImg.appendChild(preview)
               cardImg.setAttribute("id","photo-"+(i*3*cards_per_line+cr*cards_per_line+currentCardIndex))
               card.style.background = `url(${links[i*3*cards_per_line+cr*cards_per_line+currentCardIndex].imageUrl})`
@@ -417,6 +420,8 @@
               card.appendChild(cardImg);
               row.appendChild(card);
               let natHeight = cardImg.naturalHeight;
+
+              
             }
           }
           slider.appendChild(slide);

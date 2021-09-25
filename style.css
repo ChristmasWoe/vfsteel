@@ -27,6 +27,13 @@ body {
   max-width: 1140px !important;
 }
 
+.header_block {
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  z-index: 2;
+}
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -208,7 +215,8 @@ a {
 
 .main_CONTACTS {
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 30px;
+  margin-top: 30px;
 }
 
 .CONTACTS {
