@@ -392,34 +392,4 @@ a {
   padding-right: 40px !important;
   padding-left: 40px !important;
 }
-.popup {
-  z-index: 2;
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
-  top: 0;
-  left: 0;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.5s ease 0s;
-}
 
-.popup:target {
-  opacity: 1;
-  visibility: visible;
-}
-
-.popup_content {
-  position: relative;
-}
-
-.popup_close {
-  z-index: 3;
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  font-size: 20px;
-  color: white !important;
-  text-decoration: none;
-}
