@@ -381,6 +381,15 @@ a {
   text-align: center;
 }
 
+.photo_row > div {
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-color: black !important;
+  width: 360px;
+  height: 480px;
+  text-align: center;
+}
+
 .carousel-control-next,
 .carousel-control-prev {
   width: 3% !important;
