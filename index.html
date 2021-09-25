@@ -40,9 +40,9 @@
               ÚVODNÍ STRÁNKA
             </button>
             <button class="header_nav" id="scroll_to_carousel">
-              <a href="#carouselExampleIndicators">
+              <!-- <a href="#carouselExampleIndicators"> -->
                 Naše práce
-              </a>
+              <!-- </a> -->
             </button>
             <button class="header_nav" id="scroll_to_info">KONTAKTY</button>
             <button class="header_nav" id="scroll_to_license">GDPR</button>
@@ -67,7 +67,6 @@
     </section>
     <!-- CAROUSEL -->
     <!-- INFO -->
-    <section class="info_block">
     <section class='carousel_block'>
       <h2 class="main_CONTACTS">
         Naše práce
@@ -95,7 +94,7 @@
 
     </section>
     <!-- FOOTER -->
-    <section>
+    <section class='contacts_block'>
       <h3 class="main_CONTACTS">KONTAKTY</h3>
       <div class="container">
         <div class="CONTACTS">
@@ -252,20 +251,20 @@
       const app = initializeApp(firebaseConfig);
       const analytics = getAnalytics(app);
       let body = document.getElementsByTagName("body")[0]
-      console.log("abc1",body)
+      
       const storage = getStorage(app);
       const listRef = ref(storage, 'imgs');
 
       const listFunction = async () => {
         listAll(listRef)
           .then((res) => {
-            console.log(res)
+            
             let result = [];
             res.items.forEach((itemRef) => {
-              console.log(itemRef)
+              
               result.push(itemRef["_location"].path);
             });
-            console.log("abc",result)
+            
             getLinks(result)
             // return result      
           }).catch((error) => {
@@ -280,7 +279,7 @@
         let nextCtrl = document.querySelector('[data-slide="next"]');
         let slides = slider.children;
         let arr = Array.prototype.slice.call(slides)
-        console.log("children",arr);
+        
         nextCtrl.addEventListener("click",function(e){
           let currentIndex;
           for(let i = 0; i < arr.length;i++){
@@ -313,13 +312,14 @@
         })
       }
 
+      let preview //вытащил кнопку из скоупа
+
       async function getLinks(paths){
         let links = []
         for(let i=0;i<paths.length;i++){
           let url = await getDownloadURL(ref(storage,paths[i]))
           links.push(url);
         }
-        console.log(links)
         window.imgs = links
         let avW = window.innerWidth;
         let card_width = 360;
@@ -346,6 +346,9 @@
         let cards_per_slide = cards_per_line * 3;
         let slides_amount = Math.ceil(links.length / cards_per_slide);
         let slider = document.getElementById("photos-slider");
+
+        
+
         for(let i = 0; i < slides_amount; i++) {
           let slide = document.createElement("div")
           if(i==0){
@@ -379,7 +382,7 @@
               let p = document.createElement("p");
               p.innerHTML = "20% - нержавеющая сталь <br> 40% - серебро <br> 40% - похуизма";
               cardImg.appendChild(p);
-              let preview = document.createElement("a");
+              preview = document.createElement("a");
               preview.innerHTML = "Узнать больше";
               preview.setAttribute("class","info");
               cardImg.appendChild(preview)
@@ -396,9 +399,11 @@
         }
         controls()
         // return links
+        await (function() {
+          console.log(preview);
+        })()
       }
-      listFunction()
-
+      listFunction();
 
       // console.log(paths)
       // let links = await getLinks(paths)
