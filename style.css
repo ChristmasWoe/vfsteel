@@ -394,6 +394,7 @@ a {
 }
 
 .preview {
+  display: none;
   z-index: 2;
   position: fixed;
   width: 100%;

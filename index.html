@@ -262,13 +262,9 @@
       // Import the functions you need from the SDKs you need
       import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js";
       import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.0.2/firebase-analytics.js";
+      import {getFirestore,collection,getDocs} from "https://www.gstatic.com/firebasejs/9.0.2/firebase-firestore.js"
       import { getStorage, ref, listAll,getDownloadURL } from "https://www.gstatic.com/firebasejs/9.0.2/firebase-storage.js";
-      console.log("abc0")
-      // TODO: Add SDKs for Firebase products that you want to use
-      // https://firebase.google.com/docs/web/setup#available-libraries
-    
-      // Your web app's Firebase configuration
-      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+
       const firebaseConfig = {
         apiKey: "AIzaSyDh-wMqQ_K_SKi7njCNNmytIWyW_zmAQNU",
         authDomain: "vfsteel-ada5d.firebaseapp.com",
@@ -279,30 +275,40 @@
         measurementId: "G-4Z67F95S91"
       };
     
-      // Initialize Firebase
       const app = initializeApp(firebaseConfig);
       const analytics = getAnalytics(app);
       let body = document.getElementsByTagName("body")[0]
-      console.log("abc1",body)
+      const db = getFirestore(app);
       const storage = getStorage(app);
-      const listRef = ref(storage, 'imgs');
-
+      // const listRef = ref(storage, 'imgs');
+      console.log("db",db,collection)
       const listFunction = async () => {
-        listAll(listRef)
-          .then((res) => {
-            console.log(res)
-            let result = [];
-            res.items.forEach((itemRef) => {
-              console.log(itemRef)
-              result.push(itemRef["_location"].path);
-            });
-            console.log("abc",result)
-            getLinks(result)
-            // return result      
-          }).catch((error) => {
-            console.log(error)
-            // return []
+        const querySnapshot = await getDocs(collection(db, "products"));
+        let docs=[];
+        querySnapshot.forEach((doc) => {
+          docs.push({id:doc.id,...doc.data()})
+          // console.log(`${doc.id} => ${doc.data()}`);
         });
+        getLinks(docs)
+        // collection("products").get().then(snap=>{
+        //   let docs = snap.map(item=>({id:item.id,...item.data()}))
+        //   getLinks(docs)
+        // })
+        // listAll(listRef)
+        //   .then((res) => {
+        //     console.log(res)
+        //     let result = [];
+        //     res.items.forEach((itemRef) => {
+        //       console.log(itemRef)
+        //       result.push(itemRef["_location"].path);
+        //     });
+        //     console.log("abc",result)
+        //     getLinks(result)
+        //     // return result      
+        //   }).catch((error) => {
+        //     console.log(error)
+        //     // return []
+        // });
       }
 
       function controls(){
@@ -344,13 +350,8 @@
         })
       }
 
-      async function getLinks(paths){
-        let links = []
-        for(let i=0;i<paths.length;i++){
-          let url = await getDownloadURL(ref(storage,paths[i]))
-          links.push(url);
-        }
-        console.log(links)
+      async function getLinks(links){
+      
         window.imgs = links
         let avW = window.innerWidth;
         let card_width = 360;
@@ -397,25 +398,20 @@
                 controls()
                 return;
               }
-              // <div class="mask">
-              // <h2>Фемида правосудия</h2>
-              // <p>20% - нержавеющая сталь <br> 40% - серебро <br> 40% - похуизма</p>
-              // <a href="#" class="info">Узнать больше</a>
-              // </div>
               cardImg.setAttribute("class","mask")
 
               let h2 = document.createElement("h2")
-              h2.innerHTML = "Фемида правосудия"
+              h2.innerHTML = links[i*3*cards_per_line+cr*cards_per_line+currentCardIndex].name;
               cardImg.appendChild(h2);
               let p = document.createElement("p");
-              p.innerHTML = "20% - нержавеющая сталь <br> 40% - серебро <br> 40% - похуизма";
+              p.innerHTML = links[i*3*cards_per_line+cr*cards_per_line+currentCardIndex].description;
               cardImg.appendChild(p);
               let preview = document.createElement("a");
               preview.innerHTML = "Узнать больше";
               preview.setAttribute("class","info");
               cardImg.appendChild(preview)
               cardImg.setAttribute("id","photo-"+(i*3*cards_per_line+cr*cards_per_line+currentCardIndex))
-              card.style.background = `url(${links[i*3*cards_per_line+cr*cards_per_line+currentCardIndex]})`
+              card.style.background = `url(${links[i*3*cards_per_line+cr*cards_per_line+currentCardIndex].imageUrl})`
               // cardImg.setAttribute("background-url",);
              
               card.appendChild(cardImg);
@@ -429,11 +425,6 @@
         // return links
       }
       listFunction()
-
-
-      // console.log(paths)
-      // let links = await getLinks(paths)
-      // console.log(links)
     </script>
     <script src="./script.js"></script>
   </body>
