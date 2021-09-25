@@ -101,31 +101,19 @@ a {
   justify-content: space-around;
 }
 
-.view {
-  width: 360px;
-  height: 480px;
-  overflow: hidden;
-  position: relative;
-  text-align: center;
+.photo_row > div{
   box-shadow: 1px 1px 2px #e6e6e6;
-  cursor: default;
 }
 
-.view .mask, .view .content {
+.photo_row > div .mask, .photo_row > div .content {
   width: 360px;
   height: 480px;
-  position: absolute;
   overflow: hidden;
   top: 0;
   left: 0;
 }
 
-.view img {
-  display: block;
-  position: relative;
-}
-
-.view h2 {
+.photo_row > div h2 {
   text-transform: uppercase;
   color: #fff;
   text-align: center;
@@ -136,7 +124,7 @@ a {
   margin: 20px 0 0 0;
 }
 
-.view p {
+.photo_row > div p {
   font-size: 20px;
   position: relative;
   color: #fff;
@@ -144,7 +132,7 @@ a {
   text-align: center;
 }
 
-.view a.info {
+.photo_row > div a.info {
   display: inline-block;
   text-decoration: none;
   padding: 7px 14px;
@@ -154,56 +142,59 @@ a {
   box-shadow: 0 0 1px #000;
 }
 
-.view a.info:hover {
+.photo_row > div a.info:hover {
   box-shadow: 0 0 5px #000;
 }
 
-.view_first img {
+/* .view_first img {
   transition: all 0.2s linear;
-}
+} */
 
-.view_first .mask {
+.photo_row > div .mask {
   opacity: 0;
-  background-color: rgba(219, 127, 8, 0.7);
+  background-color: rgba(219, 127, 8, 0.7) !important;
   transition: all 0.4s ease-in-out;
 }
 
-.view_first h2 {
+.photo_row > div h2 {
   transform: translateY(-100px);
   opacity: 0;
   transition: all 0.2s ease-in-out;
 }
 
-.view_first p {
+.photo_row > div p {
   transform: translateY(100px);
   opacity: 0;
   transition: all 0.2s linear;
 }
 
-.view_first a.info {
+.photo_row > div a.info {
   opacity: 0;
   transition: all 0.2s ease-in-out;
 }
 
-.view_first:hover img {
+/* .view_first:hover img {
   transform: scale(1.1);
-}
+} */
 
-.view_first:hover .mask {
+.photo_row > div:hover .mask {
   opacity: 1;
 }
 
-.view_first:hover h2, .view_first:hover p, .view_first:hover a.info {
+.photo_row > div:hover h2, .photo_row > div:hover p, .photo_row > div:hover a.info {
   opacity: 1;
+  cursor: default;
+
   transform: translateY(0px);
 }
 
-.view_first:hover p {
+.photo_row > div:hover p {
   transition-delay: 0.1s;
 }
 
-.view_first:hover a.info {
+.photo_row > div:hover a.info {
   transition-delay: 0.2s;
+  cursor: pointer !important;
 }
 
 /* 
@@ -330,6 +321,17 @@ a {
   text-transform: uppercase;
   transition: all 0.2s linear;
   /* margin: 30px 0px -5px 0px; */
+}
+
+.btn-primary:hover{
+  background-color: rgba(219, 127, 8, 0.7) !important;
+}
+
+.btn-check:focus+.btn-primary, .btn-primary:focus{
+  background-color: rgba(219, 127, 8, 0.7) !important;
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 .card.card-body {
