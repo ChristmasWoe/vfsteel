@@ -312,8 +312,6 @@
         })
       }
 
-      let preview //вытащил кнопку из скоупа
-
       async function getLinks(paths){
         let links = []
         for(let i=0;i<paths.length;i++){
@@ -382,9 +380,10 @@
               let p = document.createElement("p");
               p.innerHTML = "20% - нержавеющая сталь <br> 40% - серебро <br> 40% - похуизма";
               cardImg.appendChild(p);
-              preview = document.createElement("a");
+              let preview = document.createElement("a");
               preview.innerHTML = "Узнать больше";
               preview.setAttribute("class","info");
+              preview.setAttribute('id', `smth`)
               cardImg.appendChild(preview)
               
               card.style.background = `url(${links[i*3*cards_per_line+cr*cards_per_line+currentCardIndex]})`
@@ -393,15 +392,14 @@
               card.appendChild(cardImg);
               row.appendChild(card);
               let natHeight = cardImg.naturalHeight;
+
+              
             }
           }
           slider.appendChild(slide);
         }
         controls()
         // return links
-        await (function() {
-          console.log(preview);
-        })()
       }
       listFunction();
 
