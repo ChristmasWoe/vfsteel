@@ -27,7 +27,6 @@
  
   <body>
     <script src="./script-imgs.js"></script>
-
     <!-- HEADER -->
     <section class='header_block'>
       <div class="container">
@@ -47,11 +46,6 @@
             <button class="header_nav" id="scroll_to_info">KONTAKTY</button>
             <button class="header_nav" id="scroll_to_license">GDPR</button>
             <button class="header_nav" id="scroll_to_pomoc">O NÁS</button>
-            <!-- <a href="">ÚVODNÍ STRÁNKA</a>
-            <a href="">Naše práce</a>
-            <a href="">KONTAKTY</a>
-            <a href="">GDPR</a>
-            <a href="">O NÁS</a> -->
           </menu>
         </div>
       </div>
@@ -229,23 +223,11 @@
     </footer>
     <!-- preview -->
     <div class="preview">
-      <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+      <button id="closePreview">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+      <div id="carouselExampleControls" class="carousel slide previewContainer" data-bs-ride="carousel"  data-bs-interval="false">
         <div class="carousel-inner">
-          <div class="carousel-item active">
-            <div class="preview_img">
-              <img src="https://firebasestorage.googleapis.com/v0/b/vfsteel-ada5d.appspot.com/o/imgs%2F1.jpg?alt=media&token=598b6320-ad31-4584-8436-29bf62c3b591" alt="">
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="preview_img">
-              <img src="https://firebasestorage.googleapis.com/v0/b/vfsteel-ada5d.appspot.com/o/imgs%2F1.jpg?alt=media&token=598b6320-ad31-4584-8436-29bf62c3b591" alt="">
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="preview_img">
-              <img src="https://firebasestorage.googleapis.com/v0/b/vfsteel-ada5d.appspot.com/o/imgs%2F1.jpg?alt=media&token=598b6320-ad31-4584-8436-29bf62c3b591" alt="">
-            </div>
-          </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -286,28 +268,8 @@
         let docs=[];
         querySnapshot.forEach((doc) => {
           docs.push({id:doc.id,...doc.data()})
-          // console.log(`${doc.id} => ${doc.data()}`);
         });
         getLinks(docs)
-        // collection("products").get().then(snap=>{
-        //   let docs = snap.map(item=>({id:item.id,...item.data()}))
-        //   getLinks(docs)
-        // })
-        // listAll(listRef)
-        //   .then((res) => {
-        //     console.log(res)
-        //     let result = [];
-        //     res.items.forEach((itemRef) => {
-        //       console.log(itemRef)
-        //       result.push(itemRef["_location"].path);
-        //     });
-        //     console.log("abc",result)
-        //     getLinks(result)
-        //     // return result      
-        //   }).catch((error) => {
-        //     console.log(error)
-        //     // return []
-        // });
       }
 
       function controls(){
@@ -350,8 +312,21 @@
       }
 
       async function getLinks(links){
-      
         window.imgs = links
+        let previewContainer = document.querySelector(".previewContainer")
+        let previewInner = previewContainer.children[0];
+        for(let j = 0; j < links.length;j++){          
+          let carItem = document.createElement("div");
+          carItem.setAttribute("class","carousel-item");
+          let carItemPreview = document.createElement("div");
+          carItemPreview.setAttribute("class","preview_img");
+          let carItemPreviewImg = document.createElement("img");
+          carItemPreviewImg.setAttribute("src",links[j].imageUrl);
+          carItemPreview.appendChild(carItemPreviewImg);
+          carItem.appendChild(carItemPreview);
+          previewInner.appendChild(carItem);
+        }
+
         let avW = window.innerWidth;
         let card_width = 360;
         let gap = 20;
@@ -377,8 +352,6 @@
         let cards_per_slide = cards_per_line * 3;
         let slides_amount = Math.ceil(links.length / cards_per_slide);
         let slider = document.getElementById("photos-slider");
-
-        
 
         for(let i = 0; i < slides_amount; i++) {
           let slide = document.createElement("div")
@@ -410,24 +383,43 @@
               cardImg.appendChild(p);
               let preview = document.createElement("a");
               preview.innerHTML = "Узнать больше";
+
               preview.setAttribute("class","info");
-              preview.setAttribute('id', `smth`)
+              preview.addEventListener("click",e=>{
+                let previewWindow = document.querySelector(".preview");
+                
+                let previewSlides = previewInner.children;
+                for(let index in previewSlides) {
+                  if(index <= previewSlides.length) {
+                    previewSlides[index].setAttribute("class","carousel-item");                    
+                  }
+                }
+                let toBecomeActive = previewSlides.item(i*3*cards_per_line+cr*cards_per_line+currentCardIndex);
+
+                toBecomeActive.setAttribute("class","carousel-item active");
+
+                previewWindow.style.display = "block";
+                let closePreview = document.getElementById("closePreview");
+                closePreview.addEventListener("click",e=>{
+                  previewWindow.style.display="none"
+                })
+                window.addEventListener("keydown",e=>{
+                if(e.keyCode==27){
+                  previewWindow.style.display="none"
+                }
+                })
+              })
               cardImg.appendChild(preview)
               cardImg.setAttribute("id","photo-"+(i*3*cards_per_line+cr*cards_per_line+currentCardIndex))
               card.style.background = `url(${links[i*3*cards_per_line+cr*cards_per_line+currentCardIndex].imageUrl})`
-              // cardImg.setAttribute("background-url",);
-             
               card.appendChild(cardImg);
               row.appendChild(card);
               let natHeight = cardImg.naturalHeight;
-
-              
             }
           }
           slider.appendChild(slide);
         }
         controls()
-        // return links
       }
       listFunction()
     </script>

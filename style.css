@@ -154,10 +154,6 @@ a {
   box-shadow: 0 0 5px #000;
 }
 
-/* .view_first img {
-  transition: all 0.2s linear;
-} */
-
 .photo_row > div .mask {
   opacity: 0;
   background-color: rgba(219, 127, 8, 0.7) !important;
@@ -181,10 +177,6 @@ a {
   transition: all 0.2s ease-in-out;
 }
 
-/* .view_first:hover img {
-  transform: scale(1.1);
-} */
-
 .photo_row > div:hover .mask {
   opacity: 1;
 }
@@ -204,15 +196,6 @@ a {
   transition-delay: 0.2s;
   cursor: pointer !important;
 }
-
-/* 
-  margin: 50px auto;
-  width: 450px;
-} */
-
-/* .carousel-item img {
-  height: 600px;
-} */
 
 .main_CONTACTS {
   text-align: center;
@@ -461,3 +444,11 @@ a {
   align-items: center;
 }
 
+#closePreview{
+  position: absolute;
+  top: 16px;
+  right: calc(3% + 16px);
+  border: none;
+  cursor: pointer;
+  z-index: 3;
+}
