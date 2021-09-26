@@ -30,6 +30,21 @@ document
 //Scroll to License
 document
   .querySelector("#scroll_to_license")
-  .addEventListener("click", () =>
-    document.querySelector(".pomoc_block").scrollIntoView()
+  .addEventListener("click", () =>{
+    let gdprbtn = document.querySelector("#gdpr-button")
+    console.log("abc",gdprbtn)
+    let isOpen = gdprbtn.getAttribute("aria-expanded");
+    console.log(isOpen)
+    if(isOpen=="false"){
+      let clps = document.querySelector("#collapseExample");
+      clps.setAttribute("class","collapse show")
+      gdprbtn.scrollIntoView()
+    }
+    gdprbtn.scrollIntoView()
+  }
   );
+
+
+  // window.addEventListener("load",e=>{
+  //   document.querySelector(".main_block").scrollIntoView();
+  // })
