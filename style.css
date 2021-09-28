@@ -197,10 +197,51 @@ a {
   cursor: pointer !important;
 }
 
+/* забавия */
+.zabývá {
+text-align: center;
+  font-size: 30px;
+  margin-top: 5px;
+}
+
+.services {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 50px;
+}
+.services_item{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  /* border-bottom: 1px solid black;
+  box-shadow: 0 20px 20px -20px #333; */
+  padding: 15px 15px;
+}
+.liner_palka {
+  width: 1150px;
+  margin-top: -15px;
+  height: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  border-bottom: 1px solid black;
+  box-shadow: 0 20px 20px -20px #333;
+}
+.services_item:last-child{
+  border-bottom: none;
+}
+.services_item p {
+  font-size: 35px;
+  width: 362px;
+  /* height: 3000px; */
+  text-align: center;
+}
+
+
+/* Main */
 .main_CONTACTS {
   text-align: center;
   font-size: 30px;
-  margin-top: 5px;
+  margin-top: 30px;
 }
 
 .CONTACTS {
@@ -343,7 +384,6 @@ a {
   align-items: center;
   justify-content: center;
   flex-wrap: nowrap;
-  /* margin-top: 80px; */
   color: white;
   background-color: #333333;
   height: 61px;
@@ -452,3 +492,168 @@ a {
   cursor: pointer;
   z-index: 3;
 }
+
+@media (min-width: 375px) and (max-width: 812px) {
+  #sidebar {
+    display: none;
+  }
+  .logo {
+    width: 65px;
+    height: 65px;
+  }
+  .menu {
+    font-size: 15px;
+    padding-left: 20px;
+  }
+  .header_nav {
+    margin-left: 0px;
+  }
+  .main_text {
+    margin-top: 140px;
+    font-size: 40px;
+  }
+  .main_subtext {
+    margin-top: 200px;
+  }
+  .main_block {
+    height: 900px;
+  }
+  .carousel-item.active {
+    display: flex;
+    flex-direction: column;
+  }
+  .photo_row {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0px;
+    align-items: center;
+  }
+  .photo_row > div {
+    margin-top: 20px;
+    height: 360px;
+    width: 260px;
+  }
+  .photo_row > div .mask {
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-color: black;
+    width: 260px;
+    height: 360px;
+    text-align: center;
+  }
+  .preview_img > img {
+    width: 300px;
+  }
+  .CONTACTS {
+    flex-direction: column;
+    margin-top: 0px;
+  }
+  .addresses,
+  .tel,
+  .number {
+    font-size: 18px;
+    margin-left: 0px;
+    margin-top: 20px;
+  }
+  .Pomoc {
+    font-size: 32px;
+    text-align: center;
+  }
+  .pomoc_info {
+    flex-direction: column;
+    margin-top: 20px;
+  }
+  .pomoc_info_2,
+  .pomoc_info_1,
+  .pomoc_info_3 {
+    width: 236px;
+    text-align: center;
+    margin-left: 0px;
+    margin-top: 30px;
+    height: fit-content !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  #sidebar {
+    display: none;
+  }
+  .logo {
+    width: 65px;
+    height: 65px;
+  }
+  .menu {
+    font-size: 18px;
+    padding-left: 20px;
+  }
+  .header_nav {
+    margin-left: 0px;
+  }
+  .main_text {
+    margin-top: 140px;
+    font-size: 40px;
+  }
+  .main_subtext {
+    margin-top: 200px;
+  }
+  
+  .main_block {
+    height: 900px;
+  }
+  .carousel-item.active {
+    display: flex;
+    flex-direction: column;
+  }
+  .photo_row {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0px;
+    align-items: center;
+  }
+  .photo_row > div {
+    margin-top: 20px;
+    height: 360px;
+    width: 260px;
+  }
+  .photo_row > div .mask {
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-color: black;
+    width: 260px;
+    height: 360px;
+    text-align: center;
+  }
+  .preview_img > img {
+    width: 300px;
+  }
+  .CONTACTS {
+    flex-direction: column;
+    margin-top: 0px;
+  }
+  .addresses,
+  .tel,
+  .number {
+    font-size: 22px;
+    margin-left: 0px;
+    margin-top: 20px;
+  }
+  .Pomoc {
+    font-size: 32px;
+    text-align: center;
+  }
+  .pomoc_info {
+    flex-direction: column;
+    margin-top: 20px;
+  }
+  .pomoc_info_2,
+  .pomoc_info_1,
+  .pomoc_info_3 {
+    font-size: 22px;
+    width: 236px;
+    text-align: center;
+    margin-left: 0px;
+    margin-top: 30px;
+    height: fit-content !important;
+  }
+}
+
