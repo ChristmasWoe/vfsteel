@@ -236,6 +236,45 @@ text-align: center;
   text-align: center;
 }
 
+ .our_price {
+  display: flex;
+  font-size: 35px;
+  justify-content: center;
+}
+/* 
+.wrapper {
+  display: grid;
+  margin-top: 20px;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+  text-align: center;
+}
+.column_1,
+.column_2 {
+  font-size: 20px;
+}  */
+
+.prace {
+  display: flex;
+  flex-direction: column;
+}
+.prace_item {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding: 0 20px;
+  box-shadow: 0 20px 20px -20px #333; 
+  border-bottom: 1px solid rgb(0, 0, 0);  
+}
+.prace_descr,
+.prace_cena {
+  font-size: 25px;
+}
+.prace img {
+  width: 25px;
+  height: 25px;
+}
 
 /* Main */
 .main_CONTACTS {
@@ -593,6 +632,21 @@ text-align: center;
     text-align: center;
     font-size: 30px;
   }
+  .prace_descr,
+  .prace_cena {
+    font-size: 15px;
+  }
+  .prace img {
+    display: none;
+  }
+  .prace_item {
+    align-items: center;
+    padding: 0;
+    box-shadow: none;
+  }
+  .prace_descr {
+    width: 600px;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
@@ -689,5 +743,6 @@ text-align: center;
     border-bottom: 1px solid black;
     box-shadow: 0 20px 20px -20px #333;
   }
+  
 }
 
