@@ -746,3 +746,124 @@ text-align: center;
   
 }
 
+@media (min-width: 320px) and (max-width: 847px) {
+  #sidebar {
+    display: none;
+  }
+  .logo {
+    width: 65px;
+    height: 65px;
+  }
+  .menu {
+    font-size: 15px;
+    padding-left: 15px;
+  }
+  .header_nav {
+    margin-left: 0px;
+  }
+  .main_text {
+    margin-top: 140px;
+    font-size: 40px;
+  }
+  .main_subtext {
+    margin-top: 200px;
+  }
+  .main_block {
+    height: 900px;
+  }
+  .carousel-item.active {
+    display: flex;
+    flex-direction: column;
+  }
+  .photo_row {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0px;
+    align-items: center;
+  }
+  .photo_row > div {
+    margin-top: 20px;
+    height: 360px;
+    width: 260px;
+  }
+  .photo_row > div .mask {
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-color: black;
+    width: 260px;
+    height: 360px;
+    text-align: center;
+  }
+  .preview_img > img {
+    width: 300px;
+  }
+  .CONTACTS {
+    flex-direction: column;
+    margin-top: 0px;
+  }
+  .addresses,
+  .tel,
+  .number {
+    font-size: 18px;
+    margin-left: 0px;
+    margin-top: 20px;
+  }
+  .Pomoc {
+    font-size: 32px;
+    text-align: center;
+  }
+  .pomoc_info {
+    flex-direction: column;
+    margin-top: 20px;
+  }
+  .pomoc_info_2,
+  .pomoc_info_1,
+  .pomoc_info_3 {
+    width: 236px;
+    text-align: center;
+    margin-left: 0px;
+    margin-top: 30px;
+    height: fit-content !important;
+  }
+  .services_item p {
+    font-size: 25px;
+    width: 362px;
+    text-align: center;
+  }
+  .liner_palka {
+    width: 200px;
+    margin-top: -15px;
+    height: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    border-bottom: 1px solid black;
+    box-shadow: 0 20px 20px -20px #333;
+  }
+  .services_img {
+    display: none;
+  }
+  .main_CONTACTS {
+    text-align: center;
+    font-size: 30px;
+  }
+  .prace_descr,
+  .prace_cena {
+    font-size: 15px;
+  }
+  .prace img {
+    display: none;
+    
+  }
+  .prace_item {
+    align-items: center;
+    padding: 0;
+    box-shadow: none;
+  }
+  .prace_descr {
+    width: 300px;
+    font-size: 15px;
+  }
+  .btn.btn-primary {
+    font-size: 13px;
+  }
+}
